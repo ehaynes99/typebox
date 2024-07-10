@@ -1,6 +1,6 @@
 {
-  "name": "@sinclair/typebox",
-  "version": "0.32.34",
+  "name": "@ehaynes/typebox",
+  "version": "0.32.34-alpha1",
   "description": "Json Schema Type Builder with Static Type Resolution for TypeScript",
   "keywords": [
     "typescript",
@@ -14,13 +14,27 @@
     "type": "git",
     "url": "https://github.com/sinclairzx81/typebox"
   },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.cts",
+  "exports": {
+    "require": {
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
+    },
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    }
+  },
   "scripts": {
     "test:typescript": "hammer task test_typescript",
     "test:static": "hammer task test_static",
     "test:runtime": "hammer task test_runtime",
     "install:local": "hammer task install_local",
     "benchmark": "hammer task benchmark",
-    "build": "hammer task build",
+    "build": "pkgroll",
+    "build2": "hammer task build",
     "test": "hammer task test",
     "clean": "hammer task clean",
     "format": "hammer task format",
@@ -36,6 +50,7 @@
     "ajv": "^8.12.0",
     "ajv-formats": "^2.1.1",
     "mocha": "^10.4.0",
+    "pkgroll": "^2.1.1",
     "prettier": "^2.7.1",
     "typescript": "^5.5.2"
   }
